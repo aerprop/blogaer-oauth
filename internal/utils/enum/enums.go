@@ -1,8 +1,27 @@
 package enum
 
+// channels
+const (
+	consumer  string = "OauthRpcChannel"
+	publisher string = "OauthPubChannel"
+)
+
+var Channel = struct {
+	Consumer  string
+	Publisher string
+}{
+	Consumer:  consumer,
+	Publisher: publisher,
+}
+
+var AllChannels = []string{
+	Channel.Consumer,
+	Channel.Publisher,
+}
+
 // exchanges
 const (
-	rpcExchName string = "rpcExchange"
+	rpcExchName string = "RpcExchange"
 	rpcExchType string = "direct"
 )
 
@@ -16,8 +35,8 @@ var RpcExchange = struct {
 
 // queues
 const (
-	googleQ string = "oauthGoogleQueue"
-	githubQ string = "oauthGithubQueue"
+	googleQ string = "OauthGoogleQueue"
+	githubQ string = "OauthGithubQueue"
 )
 
 var QueueName = struct {
