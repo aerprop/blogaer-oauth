@@ -61,12 +61,12 @@ func AssertExchange(
 }
 
 type AssertQueueParams struct {
-	Queue    string
-	Durable  bool
-	AutoDel  bool
-	Internal bool
-	NoWait   bool
-	Args     amqp.Table
+	Queue     string
+	Durable   bool
+	AutoDel   bool
+	Exclusive bool
+	NoWait    bool
+	Args      amqp.Table
 }
 
 func AssertQueue(
@@ -80,7 +80,7 @@ func AssertQueue(
 		config.Queue,
 		config.Durable,
 		config.AutoDel,
-		config.Internal,
+		config.Exclusive,
 		config.NoWait,
 		config.Args,
 	)

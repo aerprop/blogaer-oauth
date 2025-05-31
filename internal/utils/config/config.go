@@ -15,20 +15,20 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 	queueConfig := &RabbitMQConfig{
 		AssertQueue: map[string]service.AssertQueueParams{
 			enum.QueueName.GoogleQ: {
-				Queue:    enum.QueueName.GoogleQ,
-				Durable:  false,
-				AutoDel:  false,
-				Internal: false,
-				NoWait:   false,
-				Args:     nil,
+				Queue:     enum.QueueName.GoogleQ,
+				Durable:   false,
+				AutoDel:   false,
+				Exclusive: true,
+				NoWait:    false,
+				Args:      nil,
 			},
 			enum.QueueName.GithubQ: {
-				Queue:    enum.QueueName.GithubQ,
-				Durable:  false,
-				AutoDel:  false,
-				Internal: false,
-				NoWait:   false,
-				Args:     nil,
+				Queue:     enum.QueueName.GithubQ,
+				Durable:   false,
+				AutoDel:   false,
+				Exclusive: true,
+				NoWait:    false,
+				Args:      nil,
 			},
 		},
 		BindQueue: map[string]service.BindQueueParams{
@@ -51,7 +51,7 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 			enum.QueueName.GoogleQ: {
 				Queue:     enum.QueueName.GoogleQ,
 				Consumer:  enum.Channel.Consumer,
-				AutoAck:   false,
+				AutoAck:   true,
 				Exclusive: false,
 				NoLocal:   false,
 				NoWait:    false,
@@ -60,7 +60,7 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 			enum.QueueName.GithubQ: {
 				Queue:     enum.QueueName.GithubQ,
 				Consumer:  enum.Channel.Consumer,
-				AutoAck:   false,
+				AutoAck:   true,
 				Exclusive: false,
 				NoLocal:   false,
 				NoWait:    false,
