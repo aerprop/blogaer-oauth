@@ -25,7 +25,7 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 			enum.QueueName.GithubQ: {
 				Queue:    enum.QueueName.GithubQ,
 				Durable:  false,
-				AutoDel:  true,
+				AutoDel:  false,
 				Internal: false,
 				NoWait:   false,
 				Args:     nil,
@@ -50,7 +50,7 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 		ConsumeMsg: map[string]service.ConsumeMsgParams{
 			enum.QueueName.GoogleQ: {
 				Queue:     enum.QueueName.GoogleQ,
-				Consumer:  "",
+				Consumer:  enum.Channel.Consumer,
 				AutoAck:   false,
 				Exclusive: false,
 				NoLocal:   false,
@@ -59,7 +59,7 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 			},
 			enum.QueueName.GithubQ: {
 				Queue:     enum.QueueName.GithubQ,
-				Consumer:  "",
+				Consumer:  enum.Channel.Consumer,
 				AutoAck:   false,
 				Exclusive: false,
 				NoLocal:   false,
