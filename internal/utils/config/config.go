@@ -14,16 +14,16 @@ type RabbitMQConfig struct {
 func LoadRabbitMQConfig() *RabbitMQConfig {
 	queueConfig := &RabbitMQConfig{
 		AssertQueue: map[string]service.AssertQueueParams{
-			enum.QueueName.GoogleQ: {
-				Queue:     enum.QueueName.GoogleQ,
+			enum.QueueName.Google: {
+				Queue:     enum.QueueName.Google,
 				Durable:   false,
 				AutoDel:   false,
 				Exclusive: true,
 				NoWait:    false,
 				Args:      nil,
 			},
-			enum.QueueName.GithubQ: {
-				Queue:     enum.QueueName.GithubQ,
+			enum.QueueName.Github: {
+				Queue:     enum.QueueName.Github,
 				Durable:   false,
 				AutoDel:   false,
 				Exclusive: true,
@@ -32,15 +32,15 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 			},
 		},
 		BindQueue: map[string]service.BindQueueParams{
-			enum.QueueName.GoogleQ: {
-				Name:     enum.QueueName.GoogleQ,
+			enum.QueueName.Google: {
+				Name:     enum.QueueName.Google,
 				Key:      enum.RoutingKey.GoogleRK,
 				Exchange: enum.RpcExchange.Name,
 				NoWait:   false,
 				Args:     nil,
 			},
-			enum.QueueName.GithubQ: {
-				Name:     enum.QueueName.GithubQ,
+			enum.QueueName.Github: {
+				Name:     enum.QueueName.Github,
 				Key:      enum.RoutingKey.GithubRK,
 				Exchange: enum.RpcExchange.Name,
 				NoWait:   false,
@@ -48,18 +48,18 @@ func LoadRabbitMQConfig() *RabbitMQConfig {
 			},
 		},
 		ConsumeMsg: map[string]service.ConsumeMsgParams{
-			enum.QueueName.GoogleQ: {
-				Queue:     enum.QueueName.GoogleQ,
-				Consumer:  enum.Channel.Consumer,
+			enum.QueueName.Google: {
+				Queue:     enum.QueueName.Google,
+				Consumer:  enum.Consumer.Google,
 				AutoAck:   true,
 				Exclusive: false,
 				NoLocal:   false,
 				NoWait:    false,
 				Args:      nil,
 			},
-			enum.QueueName.GithubQ: {
-				Queue:     enum.QueueName.GithubQ,
-				Consumer:  enum.Channel.Consumer,
+			enum.QueueName.Github: {
+				Queue:     enum.QueueName.Github,
+				Consumer:  enum.Consumer.Github,
 				AutoAck:   true,
 				Exclusive: false,
 				NoLocal:   false,

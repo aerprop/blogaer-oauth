@@ -1,22 +1,22 @@
 package enum
 
-// channels
+// Consumers
 const (
-	consumer  string = "OauthRpcChannel"
-	publisher string = "OauthPubChannel"
+	googleC  string = "GoogleConsumer"
+	githubC string = "GithubConsumer"
 )
 
-var Channel = struct {
-	Consumer  string
-	Publisher string
+var Consumer = struct {
+	Google string
+	Github string
 }{
-	Consumer:  consumer,
-	Publisher: publisher,
+	Google: googleC,
+	Github: githubC,
 }
 
-var AllChannels = []string{
-	Channel.Consumer,
-	Channel.Publisher,
+var AllConsumers = []string{
+	Consumer.Google,
+	Consumer.Github,
 }
 
 // exchanges
@@ -40,16 +40,16 @@ const (
 )
 
 var QueueName = struct {
-	GoogleQ string
-	GithubQ string
+	Google string
+	Github string
 }{
-	GoogleQ: googleQ,
-	GithubQ: githubQ,
+	Google: googleQ,
+	Github: githubQ,
 }
 
 var AllQueueNames = []string{
-	QueueName.GoogleQ,
-	QueueName.GithubQ,
+	QueueName.Google,
+	QueueName.Github,
 }
 
 // route keys
