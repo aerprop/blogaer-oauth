@@ -27,7 +27,7 @@ func InitChannel(conn *amqp.Connection) (*amqp.Channel, error) {
 		Exchange: enum.RpcExchange.Name,
 		Kind:     enum.RpcExchange.Type,
 		Durable:  false,
-		AutoDel:  false,
+		AutoDel:  true,
 		Internal: false,
 		NoWait:   false,
 		Args:     nil,
